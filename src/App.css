@@ -66,3 +66,7 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.navbar {
+  padding-left: 20px;
+}
