@@ -30,7 +30,7 @@ const App = () => {
   };
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <nav className="navbar navbar-expand navbar-dark bg-dark" sx={{ 'margin-right': '5' }}>
         <Link to={"/"} className="navbar-brand">
           Figgs
         </Link>
