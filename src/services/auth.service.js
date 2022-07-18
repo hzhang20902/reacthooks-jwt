@@ -14,11 +14,11 @@ const login = (username, password) => {
         username,
         password,
     })
-    .then((res) => {
-        if (res.data.accessToken){
-            localStorage.setItem("user", JSON.stringify(res.data));
+    .then((response) => {
+        if (response.data.accessToken){
+            localStorage.setItem("user", JSON.stringify(response.data));
         }
-        return res.data;
+        return response.data;
     })
 };
 
