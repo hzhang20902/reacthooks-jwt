@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
@@ -11,7 +11,22 @@ import BoardAdmin from "./components/BoardAdmin";
 import BoardModerator from "./components/BoardModerator";
 import BoardUser from "./components/BoardUser";
 
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import styled from "styled-components";
+import { Earth } from "./components/earth";
+
+
+
+const CanvasContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  `;
+
 const App = () => {
+
+
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -29,8 +44,11 @@ const App = () => {
     AuthService.logout();
   };
   return (
-    <div>
+   
+    <CanvasContainer>
+  
       <nav className="navbar navbar-expand navbar-dark bg-dark" sx={{ 'margin-right': '5' }}>
+     
         <Link to={"/"} className="navbar-brand">
           Figgs
         </Link>
@@ -62,6 +80,7 @@ const App = () => {
             </li>
           )}
         </div>
+     
         {currentUser ? (
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -75,6 +94,7 @@ const App = () => {
               </a>
             </li>
           </div>
+          
         ) : (
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -88,10 +108,11 @@ const App = () => {
               </Link>
             </li>
           </div>
+          
         )}
+  
       </nav>
 
-      <div className="container mt-3">
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/home" element={<Home/>} />
@@ -102,8 +123,24 @@ const App = () => {
           <Route path="/mod" element={<BoardModerator/>} />
           <Route path="/admin" element={<BoardAdmin/>} />
         </Routes>
-      </div>
-    </div>
+        <Canvas   
+          camera={{ position: [5, 0, 12], fov: 50, isPerspectiveCamera: true}}
+            style={{
+              backgroundColor: 'black',
+              width: window.innerWidth,
+              height: (window.innerHeight - 20),
+            }}
+          >
+            {/* <ambientLight intensity={0.80} /> */}
+            {/* <directionalLight intensity={0.6} /> */}
+            {/* <gridHelper args={[10,10]} position={[0,-5,0]}/> */}
+          <Suspense fallback={null}>
+            <Earth />
+          </Suspense>
+          <OrbitControls />
+        </Canvas>
+    </CanvasContainer>
+  
   );
 };
 
