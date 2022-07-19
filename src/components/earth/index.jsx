@@ -1,10 +1,6 @@
 import React, { useRef } from 'react';
-import EarthMap from '../../textures/earthMap.jpeg';
-import CloudTexture from '../../textures/cloudTexture.jpeg';
 import GroundTexture from '../../textures/groundTexture.jpg';
-import EarthReal from '../../textures/earthReal.jpeg';
 import EarthClear from '../../textures/earth_noClouds.jpg';
-import OneCloud from '../../textures/smoothCloud.jpeg';
 import Clouds from '../../textures/clouds.jpeg';
 
 import { useFrame, useLoader } from '@react-three/fiber';
@@ -16,14 +12,10 @@ export function Earth(props){
 
 
     const [clouds,
-        oneCloud,
         earthClear,
-        earthMap, 
-        cloudTexture, 
-        groundTexture,
-        earthReal] = useLoader(
+        groundTexture] = useLoader(
         TextureLoader, 
-        [Clouds, OneCloud, EarthClear, EarthMap, CloudTexture, GroundTexture, EarthReal]
+        [Clouds, EarthClear, GroundTexture]
         );
 
     const earthRef = useRef();
