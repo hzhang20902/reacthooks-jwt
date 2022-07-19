@@ -12,7 +12,7 @@ import BoardModerator from "./components/BoardModerator";
 import BoardUser from "./components/BoardUser";
 
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Center, OrbitControls } from "@react-three/drei";
 import styled from "styled-components";
 import { Earth } from "./components/earth";
 
@@ -21,7 +21,7 @@ import { Earth } from "./components/earth";
 const CanvasContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: white;
   `;
 
 const App = () => {
@@ -124,16 +124,17 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin/>} />
         </Routes>
         <Canvas   
-          camera={{ position: [5, 0, 12], fov: 50, isPerspectiveCamera: true}}
+          camera={{ position: [0, 0, 12], fov: 50, isPerspectiveCamera: true}}
             style={{
               backgroundColor: 'black',
-              width: window.innerWidth,
-              height: (window.innerHeight - 20),
+              width: (window.innerWidth - 15),
+              height: window.innerHeight,
+              alignContent: Center,
             }}
           >
             {/* <ambientLight intensity={0.80} /> */}
             {/* <directionalLight intensity={0.6} /> */}
-            {/* <gridHelper args={[10,10]} position={[0,-5,0]}/> */}
+            <gridHelper args={[10,10]} position={[0,-5,0]}/>
           <Suspense fallback={null}>
             <Earth />
           </Suspense>
