@@ -124,7 +124,7 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin/>} />
         </Routes>
         <Canvas   
-          camera={{ position: [0, 0, 12], fov: 50, isPerspectiveCamera: true}}
+          camera={{ position: [0, 0, 11], fov: 50, isPerspectiveCamera: true}}
             style={{
               backgroundColor: 'black',
               width: (window.innerWidth - 15),
