@@ -31,7 +31,7 @@ export function Earth(props){
         {/* <ambientLight intensity={0.8} /> */}
         <pointLight 
         color='#f6f3ea' 
-        position={[22, 7, 33]} 
+        position={[-40, 5, 37]} 
         intensity={7.1} 
         />
 

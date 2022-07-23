@@ -16,6 +16,7 @@ import styled from "styled-components";
 import { Earth } from "./components/earth/index";
 
 import NewLogin from "./components/NewLogin";
+import NavBar from "./components/navbar/NavBar";
 
 const App = () => {
   const CanvasContainer = styled.div`
@@ -24,26 +25,27 @@ const App = () => {
     background-color: black;
     `;
 
-  const [showModeratorBoard, setShowModeratorBoard] = useState(false);
-  const [showAdminBoard, setShowAdminBoard] = useState(false);
-  const [currentUser, setCurrentUser] = useState(undefined);
+  // const [showModeratorBoard, setShowModeratorBoard] = useState(false);
+  // const [showAdminBoard, setShowAdminBoard] = useState(false);
+  // const [currentUser, setCurrentUser] = useState(undefined);
 
-  useEffect(() => {
-    const user = AuthService.getCurrentUser();
-    if (user) {
-      setCurrentUser(user);
-      setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
-      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const user = AuthService.getCurrentUser();
+  //   if (user) {
+  //     setCurrentUser(user);
+  //     setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
+  //     setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+  //   }
+  // }, []);
 
-  const logOut = () => {
-    AuthService.logout();
-  };
+  // const logOut = () => {
+  //   AuthService.logout();
+  // };
   return (
     <CanvasContainer>
-    <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
+    <NavBar />
+   
+      {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/"} className="navbar-brand">
           Figgs
         </Link>
@@ -102,7 +104,7 @@ const App = () => {
             </li>
           </div>
         )}
-      </nav>
+      </nav> */}
 
       <div className="container mt-3">
         <Routes>
@@ -117,7 +119,7 @@ const App = () => {
         </Routes>
       </div>
       <Canvas 
-        camera={{ position: [11, 0, 0], fov: 60, isPerspectiveCamera: true}}
+        camera={{ position: [-11, 0, 0], fov: 60, isPerspectiveCamera: true}}
         style={{
         backgroundColor: 'black',
         width: (window.innerWidth - 15),
@@ -128,7 +130,7 @@ const App = () => {
         </Suspense>
         <OrbitControls />
       </Canvas>
-    </div>
+    
     </CanvasContainer>
   );
 };

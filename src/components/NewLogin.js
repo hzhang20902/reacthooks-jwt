@@ -91,14 +91,16 @@ function NewLogin() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            // backgroundImage: 'url(https://youtu.be/qx8piM_GqwY?t=54)',
             backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            // backgroundColor: (t) =>
+            //   t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
-        />
+        >
+        </Grid>
+    
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -160,13 +162,13 @@ function NewLogin() {
             </Typography>
               <Grid container>
                 <Grid item xs>
-                  <Link href='register' variant="body2">
+                  <Link href='#' variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link href='register' variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    Sign Up
                   </Link>
                 </Grid>
               </Grid>
