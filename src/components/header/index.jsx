@@ -7,11 +7,12 @@ const TopSectionContainer = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    background-coler: #1756dd81;
+    background-color: #1700dd82;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 3.5%;
+    padding-top: 15%;
+    z-index: 99;
     
 `;
 
@@ -29,16 +30,38 @@ font-weight: 700;
 font-size: 30px;
 margin-top: 1em;
 `
+const UButton = styled.button`
+    outline: none;
+    border: none;
+    background-color: #27b927;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 2em;
+    margin-top: 3em;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 350ms ease-in-out;
+
+    &:hover {
+        background-color: transparent;
+        border: 2px solid #27b927;
+    }
+
+`
 
 export function TopSection() {
-    return <TopSectionContainer>
+    return (
+    <TopSectionContainer>
         <Logo>
             House of the Rising Buns
         </Logo>
         <Slogan>
             Click, drag, and zoom!!
         </Slogan>
+        <UButton>Donate</UButton>
         
     </TopSectionContainer>
-
+    );
 }
