@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
@@ -11,7 +11,18 @@ import BoardAdmin from "./components/BoardAdmin";
 import BoardModerator from "./components/BoardModerator";
 import BoardUser from "./components/BoardUser";
 
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import styled from "styled-components";
+import { Earth } from "./components/earth/index";
+
 const App = () => {
+  const CanvasContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    `;
+
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -29,6 +40,7 @@ const App = () => {
     AuthService.logout();
   };
   return (
+    <CanvasContainer>
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/"} className="navbar-brand">
@@ -103,7 +115,20 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin/>} />
         </Routes>
       </div>
+      <Canvas 
+        camera={{ position: [11, 0, 0], fov: 60, isPerspectiveCamera: true}}
+        style={{
+        backgroundColor: 'black',
+        width: (window.innerWidth - 15),
+        height: (window.innerHeight - 72),
+      }}>
+        <Suspense fallback={null}>
+          <Earth />
+        </Suspense>
+        <OrbitControls />
+      </Canvas>
     </div>
+    </CanvasContainer>
   );
 };
 

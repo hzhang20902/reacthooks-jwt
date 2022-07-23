@@ -1,32 +1,60 @@
 import React from "react";
 import AuthService from "../services/auth.service";
+import styled from "styled-components";
+
+const TopSectionContainer = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 92.9%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15%;
+    z-index: 99;
+    
+`;
+
+const Logo = styled.div`
+    margin: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 45px;
+`;
+
+const Slogan = styled.h4`
+margin: 0;
+color: #fff;
+font-weight: 700;
+font-size: 15px;
+margin-top: 1em;
+`
 
 const Profile = () => {
     const currentUser = AuthService.getCurrentUser();
     return(
-        <div className="container">
-            <header className="jumbotron">
-                <h3>
-                    <strong>{currentUser.username}</strong> Profile
-                </h3>
-            </header>
-            <p>
+       <TopSectionContainer>
+                <Logo>
+                   {currentUser.username} Profile
+                </Logo>
+            <Slogan>
                 <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
                 {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
-            </p>
-            <p>
+            </Slogan>
+            <Slogan>
                 <strong>Id:</strong> {currentUser.id}
-            </p>
-            <p>
+            </Slogan>
+            <Slogan>
                 <strong>Email:</strong> {currentUser.email}
-            </p>
-            <strong>Authorities:</strong>
-            <ul>
+            </Slogan>
+            <Slogan>Authorities:</Slogan>
+            <Slogan>
                 {currentUser.roles &&
                 currentUser.roles.map((role, index) => 
                 <li key={index}>{role}</li>)}
-            </ul>
-        </div>
+            </Slogan>
+        </TopSectionContainer>
     );
 };
 export default Profile;

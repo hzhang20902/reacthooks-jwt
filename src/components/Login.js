@@ -4,6 +4,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import AuthService from "../services/auth.service";
+import styled from "styled-components";
 
 const required = (value) => {
     if (!value) {
@@ -14,6 +15,42 @@ const required = (value) => {
         );
     }
 };
+
+const TopSectionContainer = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 92.9%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15%;
+    z-index: 99;
+    
+`;
+
+const UButton = styled.button`
+    outline: none;
+    border: none;
+    background-color: #27b927;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 2em;
+    margin-top: 3em;
+    cursor: pointer;
+    border: 2px solid transparent;
+    align: center;
+    transition: all 350ms ease-in-out;
+
+    &:hover {
+        background-color: transparent;
+        border: 2px solid #27b927;
+    }
+
+`
 
 const Login = () => {
     let navigate = useNavigate();
@@ -60,13 +97,13 @@ const Login = () => {
         }
     };
     return (
-        <div className="col-md-12">
+        <TopSectionContainer>
             <div className="card card-container">
                 <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
                 alt="profile-img"
                 className="profile-img-card"
                 />
-                <Form onSubmit={handleLogin} ref={form}>
+                <Form onSubmit={handleLogin} ref={form} sx={{"align-items": "center"}}>
                     <div className="form-group">
                         <label htmlFor="username">Username</label>
                         <Input 
@@ -91,14 +128,14 @@ const Login = () => {
                             />
                     </div>
 
-                    <div className="form-group">
-                        <button className="btn btn-primary btn-block" disabled={loading}>
+   
+                        <UButton disabled={loading}>
                             {loading && (
                                 <span className="spinner-border spinner-border-sm"></span>
                             )}
                             <span>Login</span>
-                        </button>
-                    </div>
+                        </UButton>
+                   
                     {message && (
                         <div className="form-group">
                             <div className="alert alert-danger" role="alert">
@@ -109,8 +146,7 @@ const Login = () => {
                      <CheckButton style={{ display: "none" }} ref={checkBtn} />
                 </Form>
             </div>
-
-        </div>
+        </TopSectionContainer>
     );
 };
 
