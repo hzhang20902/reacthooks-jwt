@@ -3,7 +3,6 @@ import { Routes, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import AuthService from "./services/auth.service";
-import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
@@ -15,6 +14,8 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import styled from "styled-components";
 import { Earth } from "./components/earth/index";
+
+import NewLogin from "./components/NewLogin";
 
 const App = () => {
   const CanvasContainer = styled.div`
@@ -107,7 +108,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/home" element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
+          <Route path="/login" element={<NewLogin/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/user" element={<BoardUser/>} />

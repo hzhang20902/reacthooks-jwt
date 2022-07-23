@@ -4,6 +4,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "../services/auth.service";
+import styled from "styled-components";
 
 const required = (value) => {
     if (!value){
@@ -14,6 +15,42 @@ const required = (value) => {
         );
     }
 };
+
+const TopSectionContainer = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 92.9%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 99;
+    
+`;
+
+const UButton = styled.button`
+    outline: none;
+    border: none;
+    background-color: #27b927;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 2em;
+    margin-top: 3em;
+    cursor: pointer;
+    border: 2px solid transparent;
+    align: center;
+    transition: all 350ms ease-in-out;
+
+    &:hover {
+        background-color: transparent;
+        border: 2px solid #27b927;
+    }
+
+`
+
 
 const validEmail = (value) => {
     if(!isEmail(value)){
@@ -96,7 +133,7 @@ const Register = () => {
     };
     
     return(
-        <div className="col-md-12">
+       <TopSectionContainer>
             <div className="card card-container">
                 <img src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
                 alt="profile-img"
@@ -142,9 +179,9 @@ const Register = () => {
                     </div>
 
                     <div className="form-group">
-                        <button className="btn btn-primary btn-block">
+                        <UButton className="btn btn-primary btn-block">
                         Sign Up
-                        </button>
+                        </UButton>
                     </div>
                 </div>
                 )}
@@ -161,7 +198,7 @@ const Register = () => {
         
             </div>
 
-        </div>
+    </TopSectionContainer>
     );
 };
 export default Register;

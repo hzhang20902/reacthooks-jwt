@@ -9,10 +9,10 @@ const register = (username, email, password) => {
     });
 };
 
-const login = (username, password) => {
+const login = (data) => {
     return axios.post(API_URL + "signin", {
-        username,
-        password,
+        username: data.username,
+        password: data.password,
     })
     .then((response) => {
         if (response.data.accessToken){
