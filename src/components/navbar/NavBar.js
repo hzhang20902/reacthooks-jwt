@@ -14,18 +14,19 @@ const UButton = styled.button`
     outline: none;
     border: none;
     background-color: white;
-    color: black;
+    color: white;
     font-size: 2px;
     border-radius: 5px;
-    padding: 2px 6em;
+
     margin-right: 1%;
     cursor: pointer;
     border: 1px solid transparent;
     transition: all 250ms ease-in-out;
 
     &:hover {
-        background-color: grey;
-        border: 2px solid white;
+        background-color: darkBlue;
+        color: white;
+        border: 1px solid white;
     }
 
 `
@@ -51,7 +52,7 @@ export default function NavBar() {
     return (
  
         <AppBar>
-          <Toolbar variant="dense" sx={{ backgroundColor: "darkblue" }}>
+          <Toolbar variant='dense' sx={{ backgroundColor: "darkblue" }}>
             {/* <MenuButton />
       */}
       <UButton>
@@ -98,51 +99,48 @@ export default function NavBar() {
           )}
        
         {currentUser ? (
-          <div className="navbar-nav ml-auto">
-            <li className="nav-item">
+          <>
+            <UButton>
               <Link to={"/profile"} className="nav-link">
               {currentUser.username}
               </Link>
-            </li>
-            <li className="nav-item">
+              </UButton>
+            <UButton>
               <a href="/login" className="nav-link" onClick={logOut}>
                 LogOut
               </a>
-            </li>
-          </div>
+            </UButton>
+            </>
         ) : (
-          <div className="navbar-nav ml-auto">
-            <li className="nav-item">
-            <UButton>
+          <>
+          <UButton>
               <Link to={"/login"} className="nav-link">
-              <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, "font-weight": "bold", letterSpacing: 1 }}>
+              <Typography variant="h6">
                 Login
                 </Typography>
               </Link>
               </UButton>
-            </li>
-            <li className='nav-item'>
+  
               <UButton>
               <Link to={"/register"} className="nav-link">
-              <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, "font-weight": "bold", letterSpacing: 1 }}>
+              <Typography variant="h6">
                 Sign Up
                 </Typography>
               </Link>
               </UButton>
-         </li>
-          </div>
+          </>
         )}
-   
-            <Button variant="outlined" target="_blank" href="https://www.amazon.com/hz/wishlist/ls/1F0WL8J9XEG5L/ref=nav_wishlist_lists_1?_encoding=UTF8&type=wishlist" color="inherit" sx={{ "font-weight": "bold" }}>
+
+            <Button 
+            variant="outlined" 
+            target="_blank" 
+            href="https://www.amazon.com/hz/wishlist/ls/1F0WL8J9XEG5L/ref=nav_wishlist_lists_1?_encoding=UTF8&type=wishlist" 
+            color="inherit" 
+            sx={{ "font-weight": "bold",
+            "alignSelf": 'stretch' }}>
               Donate
             </Button>
-          </Toolbar>
+             </Toolbar>
         </AppBar>
      
     );

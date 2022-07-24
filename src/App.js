@@ -23,6 +23,7 @@ const App = () => {
     width: 100%;
     height: 100%;
     background-color: black;
+    flexGrow: 1;
     `;
 
   // const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -106,7 +107,7 @@ const App = () => {
         )}
       </nav> */}
 
-      <div className="container mt-3">
+      {/* <div className="container mt-3"> */}
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/home" element={<Home/>} />
@@ -117,13 +118,13 @@ const App = () => {
           <Route path="/mod" element={<BoardModerator/>} />
           <Route path="/admin" element={<BoardAdmin/>} />
         </Routes>
-      </div>
+      {/* </div> */}
       <Canvas 
-        camera={{ position: [-11, 0, 0], fov: 60, isPerspectiveCamera: true}}
+        camera={{ position: [-9, 0, 0], fov: 60, isPerspectiveCamera: true}}
         style={{
         backgroundColor: 'black',
         width: (window.innerWidth - 15),
-        height: (window.innerHeight - 72),
+        height: (window.innerHeight - 60),
       }}>
         <Suspense fallback={null}>
           <Earth />

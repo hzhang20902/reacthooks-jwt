@@ -30,6 +30,29 @@ const TopSectionContainer = styled.div`
     
 `;
 
+const UButton = styled.button`
+    outline: none;
+    border: none;
+    background-color: #27b927;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 2em;
+    margin-top: 2em;
+    cursor: pointer;
+    margin-left: 2em;
+    border: 2px solid transparent;
+    transition: all 350ms ease-in-out;
+
+    &:hover {
+        background-color: transparent;
+        color: #27b927;
+        border: 2px solid #27b927;
+    }
+
+`
+
 function Copyright(props) {
 
   return (
@@ -149,14 +172,14 @@ function NewLogin() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-              <Button
+              <UButton
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
-              </Button>
+              </UButton>
               <Typography sx={{ color: 'red', textAlign: 'center' }}>
               {resMessage && `${resMessage}`}
             </Typography>
