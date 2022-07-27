@@ -58,7 +58,6 @@ export default function NavBar() {
       <Link to={"/"} className="nav-link">
       <Typography
           variant="h6"
-          component="div"
           sx={{ flexGrow: 1, "font-weight": "bold", letterSpacing: 1 }}>
           Figgs
       </Typography>
@@ -69,44 +68,66 @@ export default function NavBar() {
       <Link to={"/home"} className="nav-link">
           <Typography
           variant="h6"
-          sx={{ flexGrow: 1, "font-weight": "bold", letterSpacing: 1 }}>
+          sx={{ flexGrow: 1, letterSpacing: 1 }}>
           Home
       </Typography>
           </Link>
       </UButton>
         {showModeratorBoard && (
-          <li className="nav-item">
-            <UButton to={"/mod"} className="nav-link">
+  
+          <UButton>
+            <Link to={"/mod"} className="nav-link">
+            <Typography
+          variant="h6"
+          sx={{ flexGrow: 1, letterSpacing: 1 }}>
             Moderator Board
+            </Typography>
+            </Link>
             </UButton>
-          </li>
+          
         )}
           {showAdminBoard && (
-          <li className="nav-item">
+         <UButton>
             <Link to={"/admin"} className="nav-link">
+            <Typography
+          variant="h6"
+          sx={{ flexGrow: 1, letterSpacing: 1 }}>
             Admin Board
+            </Typography>
             </Link>
-          </li>
+            </UButton>
         )}
           {currentUser && (
-          <li className="nav-item">
+            <UButton>
             <Link to={"/user"} className="nav-link">
-            User
+            <Typography
+          variant="h6"
+          sx={{ flexGrow: 1, letterSpacing: 1 }}>
+            About
+            </Typography>
             </Link>
-          </li>
+            </UButton>
         )}
       
       {currentUser ? (
         <>
           <UButton>
             <Link to={"/profile"} className="nav-link">
+            <Typography
+          variant="h6"
+          sx={{ flexGrow: 1,  letterSpacing: 1 }}>
             {currentUser.username}
+            </Typography>
             </Link>
             </UButton>
           <UButton>
+          <Typography
+          variant="h6"
+          sx={{ flexGrow: 1, "font-weight": "bold", letterSpacing: 1 }}>
             <a href="/login" className="nav-link" onClick={logOut}>
               LogOut
             </a>
+            </Typography>
           </UButton>
           </>
       ) : (
@@ -114,7 +135,7 @@ export default function NavBar() {
         <UButton>
             <Link to={"/login"} className="nav-link">
             <Typography variant="h6" 
-            sx={{ flexGrow: 1, "font-weight": "bold", letterSpacing: 1 }}>
+            sx={{ flexGrow: 1, letterSpacing: 1 }}>
               Login
               </Typography>
             </Link>
@@ -123,7 +144,7 @@ export default function NavBar() {
             <UButton>
             <Link to={"/register"} className="nav-link">
             <Typography variant="h6" 
-            sx={{ flexGrow: 1, "font-weight": "bold", letterSpacing: 1 }}>
+            sx={{ flexGrow: 1, letterSpacing: 1 }}>
               Sign Up
               </Typography>
             </Link>

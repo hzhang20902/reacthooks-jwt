@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -24,6 +23,7 @@ const TopSectionContainer = styled.div`
     height: 92.9%;
     bottom: 0;
     left: 0;
+    background-color: #1755cc42;
     display: flex;
     flex-direction: column;
     z-index: 99;
@@ -58,7 +58,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://github.com/hzhang20902">
         Henry Zhang
       </Link>{' '}
       {new Date().getFullYear()}

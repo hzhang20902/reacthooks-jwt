@@ -8,7 +8,7 @@ const TopSectionContainer = styled.div`
     height: 92.9%;
     bottom: 0;
     left: 0;
-    background-color: #1700dd82;
+    background-color: #1755dd42;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +47,6 @@ const BoardUser = () => {
             <Logo>
                 {content}
             </Logo>
-        
         </TopSectionContainer>
         
         // <div className="container">

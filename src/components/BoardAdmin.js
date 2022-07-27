@@ -1,6 +1,28 @@
 import React, { useState, useEffect } from "react";
 import UserService from "../services/user.service";
+import styled from "styled-components";
 
+const TopSectionContainer = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 92.9%;
+    bottom: 0;
+    left: 0;
+    background-color: #1755dd42;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15%;
+    z-index: 99;
+    
+`;
+
+const Logo = styled.div`
+    margin: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 45px;
+`;
 const BoardAdmin = () => {
     const [content, setContent]  = useState("");
 
@@ -20,11 +42,11 @@ const BoardAdmin = () => {
     }, []);
 
     return(
-        <div className="container">
-            <header className="jumbotron">
-                <h3>{content}</h3>
-            </header>
-        </div>
+        <TopSectionContainer>
+            <Logo>
+                {content}
+            </Logo>
+        </TopSectionContainer>
     );
 };
 export default BoardAdmin;
